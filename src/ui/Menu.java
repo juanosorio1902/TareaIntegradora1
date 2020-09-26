@@ -53,6 +53,7 @@ public class Menu {
 			addClient();
 		break;
 		case 3:
+			addProduct();
 						
 		break;
 		case 4:
@@ -68,6 +69,7 @@ public class Menu {
 		
 		
 	}
+	
 	private void addRestaurant() {
 		System.out.println("Enter the name");
 		String name = lector.nextLine();
@@ -93,11 +95,24 @@ public class Menu {
 		String message = mainBase.addClient(idtype, id, name, telephone, address);
 		System.out.println(message);
 		
+	}
+	private void addProduct() {
+		System.out.println("Enter the code of the product");
+		String code = lector.nextLine();
+		System.out.println("Enter the name");
+		String name = lector.nextLine();
+		System.out.println("Enter a description");
+		String description = lector.nextLine();
+		System.out.println("Enter the cost");
+		String cost = lector.nextLine();
+		System.out.println("Enter the nit of the restaurant");
+		String restnit = lector.nextLine();
+		String message = mainBase.addProduct(code, name, description, cost, restnit);
+		System.out.println(message);
 		
-			
 		
 	}
-	
+
 	
 	
 	

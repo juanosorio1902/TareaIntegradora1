@@ -64,13 +64,51 @@ public class DataBase {
 		String message;
 		boolean found = searchClient(id);
 		if(!found) {
-			Client newclient = new Client(idtype, id, name, telephone, address);
-			clients.add(newclient);
+			Client newClient = new Client(idtype, id, name, telephone, address);
+			clients.add(newClient);
 			message="The client has been added";
 				
 		}
 		else {
 			message="The client can not been added, this id already exist";
+		}
+		return message;	
+		
+	}
+	public boolean searchRestaurant2(String restnit){
+		boolean restFound = false;
+		for(int i=0; (i<restaurants.size())&&(!restFound); i++){
+			if(restaurants.get(i)!=null){
+				if(restaurants.get(i).getNit().equals(restnit)){
+					restFound = true;
+				}
+			}
+		}	
+		return restFound;
+	}
+	public boolean searchProduct(String code){
+		boolean productFound = false;
+		for(int i=0; (i<products.size())&&(!productFound); i++){
+			if(products.get(i)!=null){
+				if(products.get(i).getCode().equals(code)){
+					productFound = true;
+				}
+			}
+		}	
+		return productFound;
+	}
+	public String addProduct(String code, String name, String description, String cost, String restnit) {
+		String message;
+		boolean found = searchProduct(code);
+		boolean exist = searchRestaurant2(restnit);
+		if(!found && exist) {
+			Product newProduct = new Product(code, name, description, cost, restnit);
+			products.add(newProduct);
+			message="The product has been added";
+				
+		}
+		else {
+			message="The product can not been added, this product already exist or the restaurant's nit doesn't exist";
 		}
 		return message;	
 		

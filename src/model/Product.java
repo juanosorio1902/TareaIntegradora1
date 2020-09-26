@@ -9,9 +9,14 @@ public class Product {
 	private String restnit;
 	
 	
-	
-	
-	
+	public Product(String code, String name, String description, String cost, String restnit) {
+		this.code = code;
+		this.name = name;
+		this.description = description;
+		this.cost = cost;
+		this.restnit = restnit;
+		
+	}
 	
 	
 	
